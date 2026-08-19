@@ -1,0 +1,325 @@
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin: 12px 0;
+  }
+
+  .section-desc {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #94a3b8;
+    font-size: 1rem;
+  }
+}
+
+.tab-controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
+
+  .tab-btn {
+    padding: 10px 20px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: #fff;
+      border-color: rgba(56, 189, 248, 0.3);
+      background: rgba(56, 189, 248, 0.05);
+    }
+
+    &.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: #38bdf8;
+      color: #38bdf8;
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+    }
+
+    &.btn-resume-tab {
+      text-decoration: none;
+      background: rgba(6, 182, 212, 0.1);
+      border-color: rgba(6, 182, 212, 0.3);
+      color: #38bdf8;
+
+      &:hover {
+        background: rgba(6, 182, 212, 0.2);
+        border-color: #38bdf8;
+        color: #ffffff;
+        box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+      }
+    }
+  }
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr;
+  }
+
+  .edu-card {
+    padding: 28px;
+
+    .edu-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+
+      .edu-icon-badge {
+        font-size: 1.8rem;
+        padding: 12px;
+        background: rgba(56, 189, 248, 0.1);
+        border-radius: 14px;
+        border: 1px solid rgba(56, 189, 248, 0.2);
+      }
+
+      .edu-institution {
+        font-size: 1.25rem;
+        color: #fff;
+        margin-bottom: 4px;
+      }
+
+      .edu-degree {
+        font-size: 0.92rem;
+        color: #38bdf8;
+        font-weight: 500;
+      }
+    }
+
+    .edu-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+
+      .metric-pill {
+        font-size: 0.78rem;
+        padding: 4px 10px;
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+
+        .metric-key {
+          color: #64748b;
+          margin-right: 4px;
+        }
+
+        .metric-val {
+          color: #e2e8f0;
+          font-weight: 600;
+
+          &.text-cyan {
+            color: #38bdf8;
+          }
+        }
+      }
+    }
+
+    .edu-highlights {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      li {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 0.88rem;
+        color: #94a3b8;
+        line-height: 1.5;
+
+        .bullet {
+          color: #38bdf8;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.bio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr;
+  }
+
+  .bio-card {
+    padding: 28px;
+
+    .card-heading {
+      font-size: 1.3rem;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .bio-text {
+      color: #94a3b8;
+      line-height: 1.7;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+
+      strong {
+        color: #f8fafc;
+      }
+    }
+
+    .dna-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      .dna-tag {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+        background: rgba(139, 92, 246, 0.1);
+        border: 1px solid rgba(139, 92, 246, 0.25);
+        color: #c084fc;
+        border-radius: 8px;
+        font-weight: 500;
+      }
+    }
+
+    .soft-skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+
+      .soft-pill {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 10px;
+
+        .icon {
+          font-size: 1.2rem;
+        }
+
+        .name {
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: #e2e8f0;
+        }
+      }
+    }
+  }
+}
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 24px;
+
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr;
+  }
+
+  .toefl-card, .nptel-card {
+    padding: 28px;
+  }
+
+  .toefl-card {
+    .toefl-badge {
+      margin-bottom: 12px;
+    }
+
+    .toefl-title {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+    }
+
+    .toefl-score-box {
+      background: rgba(6, 182, 212, 0.08);
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+      text-align: center;
+
+      .score-num {
+        font-size: 2.2rem;
+        font-weight: 800;
+        margin-bottom: 4px;
+      }
+
+      .score-sub {
+        font-size: 0.82rem;
+        color: #38bdf8;
+      }
+    }
+
+    .toefl-desc {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+  }
+
+  .nptel-card {
+    .nptel-badge {
+      margin-bottom: 12px;
+    }
+
+    .nptel-title {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+    }
+
+    .cert-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      .cert-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 14px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 10px;
+
+        .cert-medal {
+          font-size: 1.3rem;
+        }
+
+        strong {
+          display: block;
+          font-size: 0.9rem;
+          color: #f1f5f9;
+        }
+
+        .cert-tag {
+          font-size: 0.72rem;
+          margin-top: 2px;
+          display: inline-block;
+
+          &.text-amber { color: #fbbf24; }
+          &.text-cyan { color: #38bdf8; }
+          &.text-purple { color: #c084fc; }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+<section id="skills" class="section-wrapper">
+  <div class="section-header">
+    <span class="badge-emerald font-mono">04 // Technical Capabilities</span>
+    <h2 class="section-title">Skills & <span class="gradient-text-cyan">Tech Arsenal</span></h2>
+    <p class="section-desc">Comprehensive mastery of modern enterprise full-stack development, reactive frontend ecosystems, and distributed microservices.</p>
+  </div>
+
+  <!-- Category Selector Pills -->
+  <div class="category-pills">
+    @for (cat of categories(); track cat.category; let i = $index) {
+      <button 
+        type="button" 
+        class="cat-pill" 
+        [class.active]="activeCategoryIndex() === i"
+        (click)="selectCategory(i)"
+        (mouseenter)="onHover()">
+        <span>{{ cat.category }}</span>
+        <span class="pill-count font-mono">{{ cat.skills.length }}</span>
+      </button>
+    }
+  </div>
+
+  <!-- Active Category Skill Showcase -->
+  @if (categories().length > 0) {
+    @let activeCat = categories()[activeCategoryIndex()];
+    <div class="skills-showcase glass-card">
+      <div class="showcase-header">
+        <div>
+          <h3 class="active-title">{{ activeCat.category }}</h3>
+          <p class="active-desc">{{ activeCat.description }}</p>
+        </div>
+        <span class="badge-cyan font-mono">{{ activeCat.skills.length }} Technologies</span>
+      </div>
+
+      <div class="skills-grid">
+        @for (skill of activeCat.skills; track skill.name) {
+          <div class="skill-item glass-card-static" (mouseenter)="onHover()">
+            <div class="skill-main">
+              <span class="skill-icon">▹</span>
+              <span class="skill-name font-mono">{{ skill.name }}</span>
+            </div>
+            <span class="skill-tag font-mono" 
+              [class.tag-core]="skill.tag === 'Core'"
+              [class.tag-expert]="skill.tag === 'Expert'"
+              [class.tag-prof]="skill.tag === 'Proficient'"
+              [class.tag-familiar]="skill.tag === 'Familiar'">
+              {{ skill.tag }}
+            </span>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</section>

@@ -1,0 +1,47 @@
+<section id="achievements" class="section-wrapper">
+  <div class="section-header">
+    <span class="badge-amber font-mono">05 // Hackathons & Laurels</span>
+    <h2 class="section-title">Trophy Vault & <span class="gradient-text-amber">Key Laurels</span></h2>
+    <p class="section-desc">Competitive hackathon wins, national paper presentation accolades, and venture summits.</p>
+  </div>
+
+  <div class="trophy-grid">
+    @for (ach of achievements(); track ach.title) {
+      <div 
+        class="trophy-card glass-card" 
+        (click)="celebrate(ach)"
+        (mouseenter)="onHover()"
+        [class.border-amber]="ach.badgeColor === 'amber'"
+        [class.border-emerald]="ach.badgeColor === 'emerald'"
+        [class.border-cyan]="ach.badgeColor === 'cyan'"
+        [class.border-purple]="ach.badgeColor === 'purple'">
+        
+        <div class="trophy-top">
+          <div class="trophy-icon-box">
+            @if (ach.badgeColor === 'amber') { 🏆 }
+            @else if (ach.badgeColor === 'emerald') { 🥇 }
+            @else if (ach.badgeColor === 'cyan') { 💡 }
+            @else { 📜 }
+          </div>
+          <span class="rank-badge font-mono" 
+            [class.badge-amber]="ach.badgeColor === 'amber'"
+            [class.badge-emerald]="ach.badgeColor === 'emerald'"
+            [class.badge-cyan]="ach.badgeColor === 'cyan'"
+            [class.badge-purple]="ach.badgeColor === 'purple'">
+            {{ ach.rank }}
+          </span>
+        </div>
+
+        <h3 class="trophy-title">{{ ach.title }}</h3>
+        <div class="trophy-event font-mono">{{ ach.event }} · {{ ach.year }}</div>
+
+        <p class="trophy-desc">{{ ach.description }}</p>
+
+        <div class="trophy-footer">
+          <span class="prize-tag font-mono">🎁 {{ ach.prize }}</span>
+          <span class="confetti-hint font-mono">Click for Confetti ✨</span>
+        </div>
+      </div>
+    }
+  </div>
+</section>

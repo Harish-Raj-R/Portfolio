@@ -1,0 +1,53 @@
+<section id="terminal" class="section-wrapper">
+  <div class="section-header">
+    <span class="badge-purple font-mono">06 // Interactive CLI Console</span>
+    <h2 class="section-title">Developer <span class="gradient-text-cyan">Terminal</span></h2>
+    <p class="section-desc">Test interactive shell commands directly inside the browser.</p>
+  </div>
+
+  <div class="terminal-container glass-card font-mono">
+    <!-- Terminal Header Bar -->
+    <div class="terminal-bar">
+      <div class="dots-wrap">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+      </div>
+      <div class="terminal-title">harish&#64;cloud-node: ~ (zsh)</div>
+      <div class="terminal-meta">Spring Boot 3.3 // Node v22</div>
+    </div>
+
+    <!-- Terminal Output Stream -->
+    <div #termScroll class="terminal-body">
+      @for (line of history; track $index) {
+        <div class="terminal-line" [class]="'line-' + line.type">
+          <pre class="line-text font-mono">{{ line.text }}</pre>
+        </div>
+      }
+
+      <!-- Interactive Input Prompt -->
+      <div class="input-line">
+        <span class="prompt-text">harish&#64;dev:~$</span>
+        <input 
+          type="text" 
+          [(ngModel)]="inputCommand" 
+          (keydown.enter)="executeCommand()"
+          placeholder="Type 'help' or click suggestions below..."
+          class="cli-input font-mono"
+          autofocus>
+      </div>
+    </div>
+
+    <!-- Quick Command Suggestions Bar -->
+    <div class="quick-commands-bar">
+      <span class="quick-label">⚡ Suggestions:</span>
+      <div class="quick-pills">
+        @for (cmd of commandList; track cmd) {
+          <button type="button" class="quick-btn font-mono" (click)="runQuickCmd(cmd)">
+            {{ cmd }}
+          </button>
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,82 @@
+<section id="experience" class="section-wrapper">
+  <div class="section-header">
+    <span class="badge-purple font-mono">02 // Experience & Leadership</span>
+    <h2 class="section-title">Industry & <span class="gradient-text-cyan">Community Journey</span></h2>
+    <p class="section-desc">Hands-on enterprise microservices engineering at Cognizant combined with active leadership of 5,000+ developer ecosystems.</p>
+  </div>
+
+  <!-- Filter Toggle -->
+  <div class="filter-bar">
+    <button 
+      type="button" 
+      class="filter-btn" 
+      [class.active]="activeFilter() === 'ALL'"
+      (click)="setFilter('ALL')"
+      (mouseenter)="onHover()">
+      All Experience (3)
+    </button>
+    <button 
+      type="button" 
+      class="filter-btn" 
+      [class.active]="activeFilter() === 'INTERNSHIP'"
+      (click)="setFilter('INTERNSHIP')"
+      (mouseenter)="onHover()">
+      💼 Cognizant Internship
+    </button>
+    <button 
+      type="button" 
+      class="filter-btn" 
+      [class.active]="activeFilter() === 'LEADERSHIP'"
+      (click)="setFilter('LEADERSHIP')"
+      (mouseenter)="onHover()">
+      🚀 Community Leadership
+    </button>
+  </div>
+
+  <!-- Timeline Cards -->
+  <div class="timeline-container">
+    @for (exp of filteredExperiences; track exp.organization) {
+      <div class="timeline-item">
+        <!-- Marker node -->
+        <div class="timeline-marker">
+          <div class="marker-dot" [class.dot-cyan]="exp.type === 'INTERNSHIP'" [class.dot-purple]="exp.type === 'LEADERSHIP'"></div>
+          <div class="marker-line"></div>
+        </div>
+
+        <!-- Content Card -->
+        <div class="exp-card glass-card" (mouseenter)="onHover()">
+          <div class="card-top">
+            <div class="org-badge-wrap">
+              <span class="badge" [class.badge-cyan]="exp.type === 'INTERNSHIP'" [class.badge-purple]="exp.type === 'LEADERSHIP'">
+                {{ exp.tag }}
+              </span>
+              <span class="location font-mono">📍 {{ exp.location }}</span>
+            </div>
+            <span class="duration font-mono">{{ exp.duration }}</span>
+          </div>
+
+          <h3 class="role-title">{{ exp.role }}</h3>
+          <div class="org-name gradient-text-cyan">{{ exp.organization }}</div>
+
+          <ul class="bullet-list">
+            @for (bp of exp.bulletPoints; track bp) {
+              <li>
+                <span class="arrow">▹</span>
+                <span>{{ bp }}</span>
+              </li>
+            }
+          </ul>
+
+          <div class="tech-wrap">
+            <span class="tech-label font-mono">Tech Stack & Impact:</span>
+            <div class="tech-tags">
+              @for (tech of exp.technologies; track tech) {
+                <span class="tech-tag font-mono">{{ tech }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,64 @@
+<section class="hero-section">
+  <!-- Interactive Particle Background Canvas -->
+  <canvas #particleCanvas class="particle-canvas"></canvas>
+
+  <div class="hero-container">
+    <!-- Main Title & Typist Headline -->
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Hi, I'm <span class="gradient-text-cyan name-glow">Harish Raj R</span>
+      </h1>
+      
+      <div class="typewriter-box">
+        <span class="typewriter-text font-mono">{{ displayedRole() }}</span>
+        <span class="typewriter-cursor">|</span>
+      </div>
+
+      <p class="hero-subtitle">
+        Full-Stack Java & Angular Engineer specializing in resilient <strong>Spring Boot Microservices</strong> and reactive, high-performance <strong>Angular UIs</strong>. 
+        Enterprise internship experience at <strong>Cognizant</strong> and recipient of the <strong>Unnat Bharat Abhiyan</strong> research grant.
+      </p>
+
+      <!-- Tech Stack Pills -->
+      <div class="tech-pills">
+        @for (pill of techPills; track pill.name) {
+          <div class="tech-pill glass-card" (mouseenter)="onHover()">
+            <span class="tech-icon">{{ pill.icon }}</span>
+            <span class="tech-name font-mono">{{ pill.name }}</span>
+          </div>
+        }
+      </div>
+
+      <!-- Action CTA Buttons -->
+      <div class="hero-actions">
+        <a href="assets/resume.pdf" target="_blank" class="btn-primary" (mouseenter)="onHover()" (click)="onClick()">
+          <span class="action-icon">📄</span>
+          <span>View Resume (PDF)</span>
+        </a>
+        <a href="#projects" class="btn-secondary" (mouseenter)="onHover()" (click)="onClick()">
+          <span class="action-icon">🚀</span>
+          <span>Explore Projects</span>
+        </a>
+        <a href="#experience" class="btn-secondary" (mouseenter)="onHover()" (click)="onClick()">
+          <span class="action-icon">💼</span>
+          <span>Experience</span>
+        </a>
+        <a href="#contact" class="btn-secondary" (mouseenter)="onHover()" (click)="onClick()">
+          <span class="action-icon">✉️</span>
+          <span>Contact</span>
+        </a>
+      </div>
+
+      <!-- Metric Stats Cards Grid -->
+      <div class="stats-grid">
+        @for (stat of stats; track stat.label) {
+          <div class="stat-card glass-card" (mouseenter)="onHover()">
+            <div class="stat-value gradient-text-cyan">{{ stat.value }}</div>
+            <div class="stat-label">{{ stat.label }}</div>
+            <div class="stat-sub font-mono">{{ stat.sub }}</div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

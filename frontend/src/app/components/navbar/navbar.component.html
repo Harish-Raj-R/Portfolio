@@ -1,0 +1,95 @@
+<header class="nav-container" [class.scrolled]="isScrolled()">
+  <nav class="nav-content">
+    <!-- Brand Logo -->
+    <a href="#" class="brand" (mouseenter)="onHover()" (click)="onClick()">
+      <div class="logo-box">
+        <svg class="code-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+        <span class="pulse-dot"></span>
+      </div>
+      <div class="brand-text">
+        <span class="name">Harish Raj R</span>
+        <span class="role-badge font-mono">Full Stack Java / Angular</span>
+      </div>
+    </a>
+
+    <!-- Desktop Nav Links -->
+    <div class="nav-links">
+      @for (item of navItems; track item.label) {
+        <a [href]="item.href" class="nav-link" (mouseenter)="onHover()" (click)="onClick()">
+          <span>{{ item.label }}</span>
+          @if (item.badge) {
+            <span class="mini-badge">{{ item.badge }}</span>
+          }
+        </a>
+      }
+    </div>
+
+    <!-- Actions: Sound Toggle + Resume + Get in Touch -->
+    <div class="nav-actions">
+      <button 
+        type="button" 
+        class="sound-btn" 
+        (click)="toggleSound()"
+        (mouseenter)="onHover()"
+        [title]="soundService.soundEnabled() ? 'Mute sound effects' : 'Enable sound effects'"
+        [class.muted]="!soundService.soundEnabled()">
+        <span class="sound-icon">
+          @if (soundService.soundEnabled()) {
+            🔊
+          } @else {
+            🔇
+          }
+        </span>
+      </button>
+
+      <a href="assets/resume.pdf" target="_blank" class="btn-resume font-mono" (mouseenter)="onHover()" (click)="onClick()">
+        <svg class="icon-resume" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+        </svg>
+        <span>Resume</span>
+      </a>
+
+      <a href="#contact" class="btn-cta font-mono" (mouseenter)="onHover()" (click)="onClick()">
+        <span>Get In Touch</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+
+      <!-- Mobile Burger Toggle -->
+      <button 
+        type="button" 
+        class="mobile-toggle" 
+        (click)="toggleMobileMenu()"
+        aria-label="Toggle Navigation Menu">
+        <span class="bar" [class.open]="mobileMenuOpen()"></span>
+        <span class="bar" [class.open]="mobileMenuOpen()"></span>
+        <span class="bar" [class.open]="mobileMenuOpen()"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Dropdown Menu -->
+  @if (mobileMenuOpen()) {
+    <div class="mobile-menu glass-card">
+      @for (item of navItems; track item.label) {
+        <a [href]="item.href" class="mobile-nav-link" (click)="closeMobileMenu(); onClick()">
+          <span>{{ item.label }}</span>
+          @if (item.badge) {
+            <span class="mini-badge">{{ item.badge }}</span>
+          }
+        </a>
+      }
+      <div class="mobile-actions">
+        <a href="assets/resume.pdf" target="_blank" class="btn-secondary w-full mb-2 font-mono text-center" (click)="closeMobileMenu()">📄 View Resume (PDF)</a>
+        <a href="#contact" class="btn-primary w-full" (click)="closeMobileMenu()">Hire / Contact Harish</a>
+      </div>
+    </div>
+  }
+</header>

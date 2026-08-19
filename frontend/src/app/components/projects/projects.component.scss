@@ -1,0 +1,116 @@
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+
+  @media (max-width: 960px) {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+
+      .badge-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .category-tag {
+        font-size: 0.75rem;
+        color: #64748b;
+      }
+    }
+
+    .project-title {
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .project-sub {
+      font-size: 0.9rem;
+      color: #38bdf8;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .bullets-wrap {
+      margin-bottom: 20px;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+
+      .wrap-title {
+        font-size: 0.75rem;
+        color: #64748b;
+        display: block;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+
+      .project-bullets {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        li {
+          display: flex;
+          align-items: flex-start;
+          gap: 8px;
+          font-size: 0.85rem;
+          color: #cbd5e1;
+          line-height: 1.5;
+
+          .bullet {
+            color: #38bdf8;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+
+      .tech-chip {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+        background: rgba(56, 189, 248, 0.08);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        color: #38bdf8;
+        border-radius: 6px;
+      }
+    }
+
+    .project-actions {
+      margin-top: auto;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+  }
+}

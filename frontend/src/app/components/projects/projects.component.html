@@ -1,0 +1,55 @@
+<section id="projects" class="section-wrapper">
+  <div class="section-header">
+    <span class="badge-cyan font-mono">03 // Flagship Engineering Projects</span>
+    <h2 class="section-title">Architectural <span class="gradient-text-cyan">Innovations</span></h2>
+    <p class="section-desc">Enterprise microservices platforms and funded smart IoT farming architectures.</p>
+  </div>
+
+  <div class="projects-grid">
+    @for (p of projects(); track p.id) {
+      <div class="project-card glass-card" (mouseenter)="onHover()">
+        <div class="project-top">
+          <div class="badge-row">
+            <span class="badge-cyan font-mono">{{ p.badge }}</span>
+            @if (p.fundingInfo) {
+              <span class="badge-emerald font-mono">{{ p.fundingInfo }}</span>
+            }
+          </div>
+          <span class="category-tag font-mono">{{ p.category }}</span>
+        </div>
+
+        <h3 class="project-title">{{ p.title }}</h3>
+        <p class="project-sub">{{ p.subtitle }}</p>
+
+        <p class="project-desc">{{ p.description }}</p>
+
+        <div class="bullets-wrap">
+          <span class="wrap-title font-mono">Key Highlights & Architecture:</span>
+          <ul class="project-bullets">
+            @for (bp of p.bulletPoints; track bp) {
+              <li>
+                <span class="bullet">▹</span>
+                <span>{{ bp }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <div class="project-tech">
+          @for (t of p.techStack; track t) {
+            <span class="tech-chip font-mono">{{ t }}</span>
+          }
+        </div>
+
+        <div class="project-actions">
+          <a [href]="p.githubUrl" target="_blank" rel="noopener noreferrer" class="btn-primary font-mono" (click)="onClick()">
+            <span>View GitHub Code ↗</span>
+          </a>
+          <a href="#contact" class="btn-secondary font-mono" (click)="onClick()">
+            <span>Discuss Architecture 💬</span>
+          </a>
+        </div>
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,185 @@
+<section id="about" class="section-wrapper">
+  <div class="section-header">
+    <span class="badge-cyan font-mono">01 // Academic & Professional Journey</span>
+    <h2 class="section-title">About <span class="gradient-text-cyan">Harish Raj R</span></h2>
+    <p class="section-desc">An engineer dedicated to clean microservice architecture, robust distributed backends, and responsive, dynamic web experiences.</p>
+  </div>
+
+  <!-- Interactive Tabs -->
+  <div class="tab-controls">
+    <button 
+      type="button" 
+      class="tab-btn" 
+      [class.active]="activeTab() === 'education'"
+      (click)="setTab('education')"
+      (mouseenter)="onHover()">
+      🎓 Academic Record & Education
+    </button>
+    <button 
+      type="button" 
+      class="tab-btn" 
+      [class.active]="activeTab() === 'bio'"
+      (click)="setTab('bio')"
+      (mouseenter)="onHover()">
+      ⚡ Background & Core Strengths
+    </button>
+    <button 
+      type="button" 
+      class="tab-btn" 
+      [class.active]="activeTab() === 'certifications'"
+      (click)="setTab('certifications')"
+      (mouseenter)="onHover()">
+      📜 Global Language & NPTEL Credentials
+    </button>
+    <a 
+      href="assets/resume.pdf" 
+      target="_blank" 
+      class="tab-btn btn-resume-tab font-mono"
+      (mouseenter)="onHover()">
+      📄 View Official Resume (PDF) ↗
+    </a>
+  </div>
+
+  <!-- Tab Contents -->
+  <div class="tab-viewport">
+    <!-- Tab 1: Education -->
+    @if (activeTab() === 'education') {
+      <div class="education-grid">
+        @for (edu of educationList(); track edu.institution) {
+          <div class="edu-card glass-card" (mouseenter)="onHover()">
+            <div class="edu-header">
+              <div class="edu-icon-badge">🎓</div>
+              <div>
+                <h3 class="edu-institution">{{ edu.institution }}</h3>
+                <div class="edu-degree">{{ edu.degree }} in {{ edu.field }}</div>
+              </div>
+            </div>
+
+            <div class="edu-metrics">
+              <div class="metric-pill font-mono">
+                <span class="metric-key">Score:</span>
+                <span class="metric-val text-cyan">{{ edu.score }}</span>
+              </div>
+              <div class="metric-pill font-mono">
+                <span class="metric-key">Period:</span>
+                <span class="metric-val">{{ edu.duration }}</span>
+              </div>
+              <div class="metric-pill font-mono">
+                <span class="metric-key">Location:</span>
+                <span class="metric-val">{{ edu.location }}</span>
+              </div>
+            </div>
+
+            <ul class="edu-highlights">
+              @for (h of edu.highlights; track h) {
+                <li>
+                  <span class="bullet">▹</span>
+                  <span>{{ h }}</span>
+                </li>
+              }
+            </ul>
+          </div>
+        }
+      </div>
+    }
+
+    <!-- Tab 2: Bio & Strengths -->
+    @if (activeTab() === 'bio') {
+      <div class="bio-grid">
+        <div class="bio-card glass-card">
+          <h3 class="card-heading">Engineering DNA</h3>
+          <p class="bio-text">
+            I am a full-stack engineer passionate about building reliable, highly concurrent software architectures. 
+            During my internship at <strong>Cognizant</strong>, I built mission-critical Service Request and Notification modules in Java Spring Boot and designed reactive Angular screens with RxJS observables.
+          </p>
+          <div class="dna-tags">
+            <span class="dna-tag">⚡ Clean Spring Boot Code</span>
+            <span class="dna-tag">🔒 Microservices Security</span>
+            <span class="dna-tag">🅰️ Reactive RxJS Patterns</span>
+            <span class="dna-tag">🌐 API Gateway Routing</span>
+            <span class="dna-tag">🤝 Agile Collaboration</span>
+          </div>
+        </div>
+
+        <div class="bio-card glass-card">
+          <h3 class="card-heading">Soft Skills & Communication</h3>
+          <p class="bio-text">
+            Clear technical communication, teamwork, and developer community building are core to my work.
+          </p>
+          <div class="soft-skills-grid">
+            <div class="soft-pill">
+              <span class="icon">👥</span>
+              <span class="name">Rapport Building</span>
+            </div>
+            <div class="soft-pill">
+              <span class="icon">🧭</span>
+              <span class="name">People Management</span>
+            </div>
+            <div class="soft-pill">
+              <span class="icon">🧩</span>
+              <span class="name">Problem Solving</span>
+            </div>
+            <div class="soft-pill">
+              <span class="icon">🎙️</span>
+              <span class="name">Public Speaking & Tech Talks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+
+    <!-- Tab 3: Certifications & Language -->
+    @if (activeTab() === 'certifications') {
+      <div class="certs-grid">
+        <!-- TOEFL Card -->
+        <div class="toefl-card glass-card">
+          <div class="toefl-badge badge-purple font-mono">GLOBAL ENGLISH CREDENTIAL</div>
+          <h3 class="toefl-title">TOEFL ITP® Level 1</h3>
+          <div class="toefl-score-box">
+            <div class="score-num font-mono gradient-text-cyan">553 / 677</div>
+            <div class="score-sub font-mono">Speaking: 68 points (C1 Advanced CEFR Level)</div>
+          </div>
+          <p class="toefl-desc">
+            Certified proficiency in global technical collaboration, fluent articulation of complex architectural concepts, and cross-border engineering teamwork.
+          </p>
+        </div>
+
+        <!-- NPTEL Elite Certifications -->
+        <div class="nptel-card glass-card">
+          <div class="nptel-badge badge-emerald font-mono">NPTEL / IIT CERTIFICATIONS</div>
+          <h3 class="nptel-title">Technical Certifications</h3>
+          <div class="cert-list">
+            <div class="cert-item">
+              <span class="cert-medal">🥇</span>
+              <div>
+                <strong>Joy of Computing Using Python</strong>
+                <span class="cert-tag text-amber font-mono">Elite + Silver Medal</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <span class="cert-medal">🌟</span>
+              <div>
+                <strong>Introduction to IoT (Internet of Things)</strong>
+                <span class="cert-tag text-cyan font-mono">Elite</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <span class="cert-medal">🌟</span>
+              <div>
+                <strong>Python for Data Science</strong>
+                <span class="cert-tag text-cyan font-mono">Elite</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <span class="cert-medal">📐</span>
+              <div>
+                <strong>System Design Through Verilog</strong>
+                <span class="cert-tag text-purple font-mono">Certified</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>

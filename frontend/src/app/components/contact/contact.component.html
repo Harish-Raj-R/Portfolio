@@ -1,0 +1,72 @@
+<section id="contact" class="section-wrapper">
+  <div class="section-header">
+    <span class="badge-cyan font-mono">07 // Initiation Channel</span>
+    <h2 class="section-title">Let's Connect & <span class="gradient-text-cyan">Collaborate</span></h2>
+    <p class="section-desc">Open for full-time Full-Stack / Backend software engineering positions, hackathon
+      mentorship, and technical discussions.</p>
+  </div>
+
+  @if (copyToast()) {
+  <div class="copy-toast font-mono">{{ copyToast() }}</div>
+  }
+
+  <div class="contact-layout-centered">
+    <div class="info-card glass-card">
+      <div class="info-header">
+        <h3 class="info-title">Direct Coordinates</h3>
+        <p class="info-desc">Feel free to reach out directly via email, phone, or professional networks.</p>
+      </div>
+
+      <div class="coords-grid">
+        <!-- Email -->
+        <div class="coord-item glass-card-static" (mouseenter)="onHover()">
+          <div class="coord-icon">✉️</div>
+          <div class="coord-details">
+            <span class="coord-label font-mono">Email Address</span>
+            <a [href]="'mailto:' + contactDetails.email" class="coord-val">{{ contactDetails.email }}</a>
+          </div>
+          <button type="button" class="copy-btn font-mono" (click)="copyToClipboard(contactDetails.email, 'Email')">
+            Copy
+          </button>
+        </div>
+
+        <!-- Phone / WhatsApp -->
+        <div class="coord-item glass-card-static" (mouseenter)="onHover()">
+          <div class="coord-icon">📱</div>
+          <div class="coord-details">
+            <span class="coord-label font-mono">Mobile / WhatsApp</span>
+            <a [href]="'tel:' + contactDetails.phone" class="coord-val">{{ contactDetails.phone }}</a>
+          </div>
+          <button type="button" class="copy-btn font-mono" (click)="copyToClipboard(contactDetails.phone, 'Phone')">
+            Copy
+          </button>
+        </div>
+
+        <!-- Location -->
+        <div class="coord-item glass-card-static" (mouseenter)="onHover()">
+          <div class="coord-icon">📍</div>
+          <div class="coord-details">
+            <span class="coord-label font-mono">Location</span>
+            <span class="coord-val">{{ contactDetails.location }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Action Buttons Row -->
+      <div class="direct-actions-row">
+        <a [href]="'mailto:' + contactDetails.email" class="btn-primary" (mouseenter)="onHover()">
+          <span>✉️ Email Harish</span>
+        </a>
+        <a [href]="'https://wa.me/918778726685'" target="_blank" rel="noopener noreferrer" class="btn-secondary" (mouseenter)="onHover()">
+          <span>💬 WhatsApp</span>
+        </a>
+        <a [href]="contactDetails.linkedIn" target="_blank" rel="noopener noreferrer" class="btn-secondary font-mono" (mouseenter)="onHover()">
+          <span>LinkedIn ↗</span>
+        </a>
+        <a [href]="contactDetails.github" target="_blank" rel="noopener noreferrer" class="btn-secondary font-mono" (mouseenter)="onHover()">
+          <span>GitHub ↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
